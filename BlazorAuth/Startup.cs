@@ -18,6 +18,7 @@ using System.Net;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
 using Microsoft.AspNetCore.HttpOverrides;
+using Microsoft.AspNetCore.Components.Authorization;
 
 namespace BlazorAuth
 {
@@ -38,6 +39,9 @@ namespace BlazorAuth
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped<AuthenticationStateProvider, ServerAutStateProvider>();
 
             var strictSameSiteOpenIdConnectOptions = new StrictSameSiteOpenIdConnectOptions();
             _configuration.GetSection("StrictSameSiteOpenIdConnectOptions").Bind(strictSameSiteOpenIdConnectOptions);

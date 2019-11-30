@@ -9,6 +9,9 @@
 *.userosscache
 *.sln.docstates
 
+#Not to commit credetials
+appsettings.Development.json
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 

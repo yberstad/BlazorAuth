@@ -3,3 +3,17 @@
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
+
+<AuthorizeView>
+    <Authorized>
+            @context.User.Identity.Name
+            <a href="/api/openidconnect/logout" title="undefined">
+                Log out
+            </a>
+    </Authorized>
+    <NotAuthorized>
+        <a href="/api/openidconnect/login" title="undefined">
+            Log in
+        </a>
+    </NotAuthorized>
+</AuthorizeView>
